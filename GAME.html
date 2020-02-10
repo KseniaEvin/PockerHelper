@@ -4,60 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src='game.js'></script>
 </head>
 <body>
-    <script>
-        
-        // function getRandomCard(min, max) {
-        //     let rand1 = Math.floor(Math.random() * deck.suits.length);
-        //     let rand2= Math.floor(Math.random() * deck.faces.length);
 
-        //     return (`${deck.suits[rand1]} ${deck.faces[rand2]}`);
-        // }
-
-        let deck = ["Ace Hearts", "Ace Spades", "Ace Diamonds", "Ace Clubs", "2 Hearts", "2 Spades", "2 Diamonds", "2 Clubs", "3 Hearts", "3 Spades", "3 Diamonds", "3 Clubs", 
-        "4 Hearts", "4 Spades", "4 Diamonds", "4 Clubs", "5 Hearts", "5 Spades", "5 Diamonds", "5 Clubs", "6 Hearts", "6 Spades", "6 Diamonds", "6 Clubs", 
-        "7 Hearts", "7 Spades", "7 Diamonds", "7 Clubs", "8 Hearts", "8 Spades", "8 Diamonds", "8 Clubs", "9 Hearts", "9 Spades", "9 Diamonds", "9 Clubs",
-        "10 Hearts", "10 Spades", "10 Diamonds", "10 Clubs", "Jack Hearts", "Jack Spades", "Jack Diamonds", "Jack Clubs", "Queen Hearts", "Queen Spades", "Queen Diamonds", "Queen Clubs",
-        "King Hearts", "King Spades", "King Diamonds", "King Clubs"];
-
-        let  userHand = deck.splice([Math.floor(Math.random()*deck.length)], 1);
-        userHand.push(deck.splice([Math.floor(Math.random()*deck.length)], 1).join(""));
-        userHand.push(deck.splice([Math.floor(Math.random()*deck.length)], 1).join(""));
-        userHand.push(deck.splice([Math.floor(Math.random()*deck.length)], 1).join(""));
-        userHand.push(deck.splice([Math.floor(Math.random()*deck.length)], 1).join(""));
-        console.log(userHand);
-
-        // function checkWhatCombination (userHand) {
-        //     if ()
-
-        // }
-
-    //     let deck = {
-    //     suits: ["Spades", "Hearts", "Clubs", "Diamonds"],
-    //     faces: ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
-    //                  "Nine", "Ten", "Jack", "Queen", "King", "Ace"]
-    // }
-
-            // let fiveCards = (`${arrayRandElement(deck)}, ${arrayRandElement(deck)}, ${arrayRandElement(deck)}, ${arrayRandElement(deck)}, ${arrayRandElement(deck)} `);
-            // console.log(fiveCards.split(', '));
-        
-
-
-            
-//Флеш рояль: все карты от 10 до туза
-//Стрит флеш: cтрит в котором Пять карт одномастные
-//Каре: четыре карты одного достоинства
-//фулл хаус: три карты одного достоинства  и две другого
-//флеш: пять карт одной масти
-//стрит: пять последовательно расположенных карт
-//сет: три карты одного достоинства
-//две пары: две пары карт одинакового достоинства
-//пара: две карты одинакового достоинства
-//старшая карта : разные пять карт
-    
-        
-  
-    </script>
 </body>
 </html>
