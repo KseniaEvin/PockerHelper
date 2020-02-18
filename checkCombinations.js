@@ -7,13 +7,10 @@ let flush = function isFlush(fiveCards){
     return (arr.every((item, i, list) => item === list[0])); 
 };
 
-let a = [];
-
 let straight = function isStraight(fiveCards){
+    let a = [];
     let arr = fiveCards.map((card) => card.rank);
-        arr.sort( function (a,b) {
-        return a - b;
-  }); 
+        arr.sort((a,b) => (a - b)); 
   for (let i = 0; i < arr.length-1; i++) {
        a.push((arr[i+1] - arr[i]));
     }
@@ -44,12 +41,13 @@ let flushRoyal = function isFlushRoyal(straightFlush, flush, straight){
    }
    
 };
-function isRepeat(fiveCards){
+let repeat = function isRepeat(fiveCards){
   let arr = fiveCards.map((card) => card.rank);
-  repeats = arr.filter(function (elem, index) {
+  repeats = arr.filter((elem, index) => {
     return index !== arr.indexOf(elem) || index !== arr.lastIndexOf(elem);
 });
-
+};
+function checks(flush, straight, repeat) {
   if (repeats.length === 2) {
     console.log("Пара");
   }
@@ -67,8 +65,10 @@ function isRepeat(fiveCards){
   }
 }
 
+
 flush(fiveCards);
 straight(fiveCards);
 straightFlush(flush, straight);
-isRepeat(fiveCards);
+repeat(fiveCards);
 flushRoyal(straightFlush, flush, straight);
+checks(flush, straight, repeat);
