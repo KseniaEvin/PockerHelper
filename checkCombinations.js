@@ -1,7 +1,7 @@
 const { getSuits, getRanks } = require('./utilities');
 let flush = function (fiveCards) {
-  let arr = fiveCards.map((card) => card.suit);
-  return (arr.every((item, i, list) => item === list[0]));
+  let suits = getSuits(fiveCards);
+  return (suits.every((item, i, list) => item === list[0]));
 };
 
 let straight = function (fiveCards) {
@@ -16,23 +16,23 @@ let straight = function (fiveCards) {
   return false;
 };
 
-let flushRoyal = function (straightFlush, flush, straight) {
-  let ranks = getRanks(fiveCards);
+// let flushRoyal = function (straightFlush, flush, straight) {
+//   let ranks = getRanks(fiveCards);
 
-  if (straightFlush(flush, straight) && ranks[0] === 10) {
-    console.log("Флеш Рояль");
-  }
-  else if (straightFlush(flush, straight) && ranks[0] !== 10) {
-    console.log("Стрит Флэш");
-  }
-  else if (straight(fiveCards) && !flush(fiveCards)) {
-    console.log("Стрит");
-  }
-  else if (flush(fiveCards) && !straight(fiveCards)) {
-    console.log("Флэш");
-  }
+//   if (straightFlush(flush, straight) && ranks[0] === 10) {
+//     console.log("Флеш Рояль");
+//   }
+//   else if (straightFlush(flush, straight) && ranks[0] !== 10) {
+//     console.log("Стрит Флэш");
+//   }
+//   else if (straight(fiveCards) && !flush(fiveCards)) {
+//     console.log("Стрит");
+//   }
+//   else if (flush(fiveCards) && !straight(fiveCards)) {
+//     console.log("Флэш");
+//   }
 
-};
+// };
 
 let repeat = function (fiveCards) {
   let ranks = getRanks(fiveCards);
