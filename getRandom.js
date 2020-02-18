@@ -26,3 +26,4 @@ for(let i = 0; i < 5; i++) {
 
 getRandom(deck);
 console.log(fiveCards);
+console.log(deck);
