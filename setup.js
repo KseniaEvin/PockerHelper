@@ -30,4 +30,4 @@ function prepareCardsBeforeGame() {
   
 };
 
-module.exports = prepareCardsBeforeGame;  
+module.exports = {prepareCardsBeforeGame};

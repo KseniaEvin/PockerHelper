@@ -1,36 +1,37 @@
-const prepareCardsBeforeGame = require('./setup');
-const { fiveCards } = prepareCardsBeforeGame();
+const { prepareCardsBeforeGame } = require('./setup');
+const { deck, fiveCards } = prepareCardsBeforeGame();
 console.log(fiveCards);
 
-let flush = function isFlush(fiveCards){
+let flush = function (fiveCards){
     let arr = fiveCards.map((card) => card.suit);
     return (arr.every((item, i, list) => item === list[0])); 
 };
 
-let straight = function isStraight(fiveCards){
+let straight = function (fiveCards){
     let a = [];
     let arr = fiveCards.map((card) => card.rank);
-        arr.sort((a,b) => (a - b)); 
+        arr.sort((a,b) => a - b); 
   for (let i = 0; i < arr.length-1; i++) {
        a.push((arr[i+1] - arr[i]));
     }
     if (a[0] ===1 ) {
         return (a.every((item, i, list) => item === list[0]));
 };
-};
-let straightFlush = function isStraightFlush(flush, straight) {
-    return (straight(fiveCards) && flush(fiveCards));    
-}; 
 
-let flushRoyal = function isFlushRoyal(straightFlush, flush, straight){
+
+};
+// let straightFlush = function (flush, straight) {
+//     return (straight(fiveCards) && flush(fiveCards));    
+// }; 
+
+let flushRoyal = function (straightFlush, flush, straight){
    let arr = fiveCards.map((card) => card.rank);
-   arr.sort(function (a,b) {
-    return a - b;
-  });
+   arr.sort((a,b) => a - b);
+  
    if (straightFlush(flush, straight) && arr[0] === 10) {
       console.log("Флеш Рояль");
    } 
-   if (straightFlush(flush, straight) && arr[0] !== 10) {
+   else if (straightFlush(flush, straight) && arr[0] !== 10) {
       console.log("Стрит Флэш");
    } 
    else if (straight(fiveCards) && !flush(fiveCards)) {
@@ -41,7 +42,8 @@ let flushRoyal = function isFlushRoyal(straightFlush, flush, straight){
    }
    
 };
-let repeat = function isRepeat(fiveCards){
+
+let repeat = function (fiveCards){
   let arr = fiveCards.map((card) => card.rank);
   repeats = arr.filter((elem, index) => {
     return index !== arr.indexOf(elem) || index !== arr.lastIndexOf(elem);
@@ -65,10 +67,15 @@ function checks(flush, straight, repeat) {
   }
 }
 
+module.exports = {
+  flush,
+  straight
+}
+
 
 flush(fiveCards);
 straight(fiveCards);
-straightFlush(flush, straight);
+// straightFlush(flush, straight);
 repeat(fiveCards);
-flushRoyal(straightFlush, flush, straight);
+// flushRoyal(straightFlush, flush, straight);
 checks(flush, straight, repeat);
