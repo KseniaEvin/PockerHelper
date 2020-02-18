@@ -1,3 +1,4 @@
+const { getSuits, getRanks } = require('./utilities');
 let flush = function (fiveCards) {
   let arr = fiveCards.map((card) => card.suit);
   return (arr.every((item, i, list) => item === list[0]));
@@ -5,10 +6,9 @@ let flush = function (fiveCards) {
 
 let straight = function (fiveCards) {
   let a = [];
-  let arr = fiveCards.map((card) => card.rank);
-  arr.sort((a, b) => a - b);
-  for (let i = 0; i < arr.length - 1; i++) {
-    a.push((arr[i + 1] - arr[i]));
+  let suits = getSuits(fiveCards);
+  for (let i = 0; i < suits.length - 1; i++) {
+    a.push((suits[i + 1] - suits[i]));
   }
   if (a[0] === 1) {
     return (a.every((item, i, list) => item === list[0]));
@@ -17,13 +17,12 @@ let straight = function (fiveCards) {
 };
 
 let flushRoyal = function (straightFlush, flush, straight) {
-  let arr = fiveCards.map((card) => card.rank);
-  arr.sort((a, b) => a - b);
+  let ranks = getRanks(fiveCards);
 
-  if (straightFlush(flush, straight) && arr[0] === 10) {
+  if (straightFlush(flush, straight) && ranks[0] === 10) {
     console.log("Флеш Рояль");
   }
-  else if (straightFlush(flush, straight) && arr[0] !== 10) {
+  else if (straightFlush(flush, straight) && ranks[0] !== 10) {
     console.log("Стрит Флэш");
   }
   else if (straight(fiveCards) && !flush(fiveCards)) {
@@ -36,9 +35,9 @@ let flushRoyal = function (straightFlush, flush, straight) {
 };
 
 let repeat = function (fiveCards) {
-  let arr = fiveCards.map((card) => card.rank);
-  repeats = arr.filter((elem, index) => {
-    return index !== arr.indexOf(elem) || index !== arr.lastIndexOf(elem);
+  let ranks = getRanks(fiveCards);
+  repeats = ranks.filter((elem, index) => {
+    return index !== ranks.indexOf(elem) || index !== ranks.lastIndexOf(elem);
   });
 };
 function checks(flush, straight, repeat) {
