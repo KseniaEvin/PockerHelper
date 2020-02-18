@@ -1,7 +1,3 @@
-// const { prepareCardsBeforeGame } = require('./setup');
-// const { deck, fiveCards } = prepareCardsBeforeGame();
-// console.log(fiveCards);
-
 let flush = function (fiveCards) {
   let arr = fiveCards.map((card) => card.suit);
   return (arr.every((item, i, list) => item === list[0]));
@@ -19,9 +15,6 @@ let straight = function (fiveCards) {
   };
   return false;
 };
-// let straightFlush = function (flush, straight) {
-//     return (straight(fiveCards) && flush(fiveCards));    
-// }; 
 
 let flushRoyal = function (straightFlush, flush, straight) {
   let arr = fiveCards.map((card) => card.rank);

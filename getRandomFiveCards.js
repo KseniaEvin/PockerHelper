@@ -1,6 +1,3 @@
-// const getDeck = require('./getDeck');
-// let deck = getDeck();
-
 let getRandomFiveCards = function (deck) {
     let fiveCards = [];
     for (let i = 0; i < 5; i++) {
