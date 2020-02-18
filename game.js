@@ -13,6 +13,5 @@ function game() {
    console.log(isStraight);
   //  console.log(flush);
 }
-game();
 
 module.exports = game;
