@@ -1,6 +1,6 @@
 const getRandomFiveCards = require('./getRandomFiveCards');
 const getDeck = require('./getDeck');
-const { flush, straight, repeat } = require('./checkCombinations');
+const { flush, straight, repeat } = require('./combinations');
 const checks = require('./checks');
 const { getSuits, getRanks } = require('./utilities');
 const straightFlush = require('./straightFlush');
