@@ -17,14 +17,8 @@ function game() {
    let toCheck = checks(fiveCards);
    let isFlushRoyal = flushRoyal(fiveCards);
    let isStraightFlush = straightFlush(fiveCards);
-   // console.log(deck);
-   // console.log(suits);
-   // console.log(ranks);
-   // console.log (isFlushRoyal);
-   // console.log (isStraightFlush);
+   console.log(fiveCards);
    toCheck;
-   // console.log(fiveCards);
 };
-// game();
 
 module.exports = game;
