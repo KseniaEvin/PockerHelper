@@ -5,5 +5,4 @@ let flushRoyal = function (fiveCards) {
     let ranks = getRanks(fiveCards);
     return isStraightFlush && ranks[0] === 10;
 };
-
 module.exports = flushRoyal;

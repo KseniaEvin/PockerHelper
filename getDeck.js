@@ -10,7 +10,7 @@ function getDeck () {
       for (let j = 0; j < ranks.length; j++) {
         let card = { suit: suits[i], rank: ranks[j] };
         deck = [...deck, card];
-      }
+      };
     };
     return deck;
 }

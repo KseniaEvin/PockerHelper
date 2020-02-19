@@ -6,13 +6,13 @@ let flush = function (fiveCards) {
 
 let straight = function (fiveCards) {
   let a = [];
-  let suits = getSuits(fiveCards);
-  for (let i = 0; i < suits.length - 1; i++) {
-    a.push((suits[i + 1] - suits[i]));
+  let ranks = getRanks(fiveCards);
+  for (let i = 0; i < ranks.length - 1; i++) {
+    a.push((ranks[i + 1] - ranks[i]));
   }
   if (a[0] === 1) {
     return (a.every((item, i, list) => item === list[0]));
-  };
+  }
   return false;
 };
 
@@ -40,27 +40,28 @@ let repeat = function (fiveCards) {
     return index !== ranks.indexOf(elem) || index !== ranks.lastIndexOf(elem);
   });
 };
-function checks(flush, straight, repeat) {
-  if (repeats.length === 2) {
-    console.log("Пара");
-  }
-  else if (repeats.length === 3) {
-    console.log("Тройка");
-  }
-  else if ((repeats.every((item, i, list) => item == list[0])) && repeats.length === 4) {
-    console.log("Каре");
-  }
-  else if (repeats.length === 4) {
-    console.log("Две пары");
-  }
-  else if (repeats.length === 5) {
-    console.log("Фулл Хаус");
-  }
-}
+// function checks(repeat) {
+//   if (repeats.length === 2) {
+//     console.log("Пара");
+//   }
+//   else if (repeats.length === 3) {
+//     console.log("Тройка");
+//   }
+//   else if ((repeats.every((item, i, list) => item == list[0])) && repeats.length === 4) {
+//     console.log("Каре");
+//   }
+//   else if (repeats.length === 4) {
+//     console.log("Две пары");
+//   }
+//   else if (repeats.length === 5) {
+//     console.log("Фулл Хаус");
+//   }
+// }
 
 module.exports = {
   flush,
-  straight
+  straight,
+  repeat
 }
 
 

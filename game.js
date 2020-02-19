@@ -1,6 +1,7 @@
 const getRandomFiveCards = require('./getRandomFiveCards');
 const getDeck = require('./getDeck');
-const { flush, straight } = require('./checkCombinations');
+const { flush, straight, repeat } = require('./checkCombinations');
+const checks = require('./checks');
 const { getSuits, getRanks } = require('./utilities');
 const straightFlush = require('./straightFlush');
 const flushRoyal = require('./flushRoyal');
@@ -12,14 +13,18 @@ function game() {
    let ranks = getRanks(fiveCards);
    let isFlush = flush(fiveCards);
    let isStraight = straight(fiveCards);
+   let isRepeat = repeat(fiveCards);
+   let toCheck = checks(fiveCards);
    let isFlushRoyal = flushRoyal(fiveCards);
    let isStraightFlush = straightFlush(fiveCards);
-   console.log(deck);
-   console.log(fiveCards);
-   console.log(suits);
-   console.log(ranks);
-   console.log (isFlushRoyal);
-   console.log (isStraightFlush);
-}
+   // console.log(deck);
+   // console.log(suits);
+   // console.log(ranks);
+   // console.log (isFlushRoyal);
+   // console.log (isStraightFlush);
+   toCheck;
+   // console.log(fiveCards);
+};
+// game();
 
 module.exports = game;
