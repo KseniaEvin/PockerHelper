@@ -4,44 +4,35 @@ const { flush, straight, repeat } = require('./combinations');
 function checks(fiveCards) {
     let isFlushRoyal = flushRoyal(fiveCards);
     if (isFlushRoyal) {
-        console.log("Флеш Рояль");
-        return true;
+        return "Флеш Рояль";
     }
     let isStraightFlush = straightFlush(fiveCards);
     if (isStraightFlush) {
-        console.log("Стрит Флэш");
-        return true;
+        return "Стрит Флэш";
     }
     if ((repeats.every((item, i, list) => item == list[0])) && repeats.length === 4) {
-        console.log("Каре");
-        return true;
+        return "Каре";
     }
     if (repeats.length === 5) {
-        console.log("Фулл Хаус");
-        return true;
+        return "Фулл Хаус";
     } 
     let isFlush = flush(fiveCards);
     if (isFlush && !isStraight) {
-        console.log("Флэш");
-        return true;
+        return "Флэш";
     } 
     let isStraight = straight(fiveCards);
     if (isStraight && !isFlush) {
-        console.log("Стрит");
-        return true;
+        return "Стрит";
     }
     if (repeats.length === 3) {
-        console.log("Тройка");
-        return true;
+        return "Тройка";
     }
     if (repeats.length === 4) {
-        console.log("Две пары");
-        return true;
+        return "Две пары";
     }
     
     if (repeats.length === 2) {
-        console.log("Пара");
-        return true;
+        return "Пара";
     }
 } 
 

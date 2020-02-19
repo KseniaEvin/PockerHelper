@@ -18,7 +18,7 @@ function game() {
    let isFlushRoyal = flushRoyal(fiveCards);
    let isStraightFlush = straightFlush(fiveCards);
    console.log(fiveCards);
-   toCheck;
+   console.log(toCheck);
 };
 
 module.exports = game;
