@@ -30,7 +30,6 @@ function checks(fiveCards) {
     if (repeats.length === 4) {
         return "Две пары";
     }
-    
     if (repeats.length === 2) {
         return "Пара";
     }
