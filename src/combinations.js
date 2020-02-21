@@ -17,10 +17,12 @@ let straight = function (fiveCards) {
 };
 
 let repeat = function (fiveCards) {
-  let ranks = getRanks(fiveCards);
-  repeats = ranks.filter((elem, index) => {
+  const ranks = getRanks(fiveCards);
+  const repeats = ranks.filter((elem, index) => {
     return index !== ranks.indexOf(elem) || index !== ranks.lastIndexOf(elem);
   });
+
+  return repeats;
 };
 
 module.exports = {

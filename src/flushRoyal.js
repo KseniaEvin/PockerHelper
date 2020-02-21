@@ -1,8 +1,11 @@
 const straightFlush = require('./straightFlush');
-const { getSuits, getRanks } = require('./utilities');
-let flushRoyal = function (fiveCards) {
+const { getRanks } = require('./utilities');
+
+function flushRoyal(fiveCards) {
     const isStraightFlush = straightFlush(fiveCards);
-    let ranks = getRanks(fiveCards);
+    const ranks = getRanks(fiveCards);
+
     return isStraightFlush && ranks[0] === 10;
 };
+
 module.exports = flushRoyal;

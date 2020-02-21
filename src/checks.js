@@ -7,24 +7,26 @@ function checks(fiveCards) {
     if (isFlushRoyal) {
         return "Flush Royal";
     }
+    let isFlush = flush(fiveCards);
+    if (isFlush && !isStraight) {
+        return "Flush";
+    }
     let isStraightFlush = straightFlush(fiveCards);
     if (isStraightFlush) {
         return "Straight Flush";
     }
-    let isRepeat = repeat(fiveCards);
+    let isStraight = straight(fiveCards);
+    if (isStraight && !isFlush) {
+        return "Straight";
+    }
+
+
+    const repeats = repeat(fiveCards);
     if ((repeats.every((item, i, list) => item == list[0])) && repeats.length === 4) {
         return "Square";
     }
     if (repeats.length === 5) {
         return "Full House";
-    } 
-    let isFlush = flush(fiveCards);
-    if (isFlush && !isStraight) {
-        return "Flush";
-    } 
-    let isStraight = straight(fiveCards);
-    if (isStraight && !isFlush) {
-        return "Straight";
     }
     if (repeats.length === 3) {
         return "Three";
