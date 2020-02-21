@@ -1,6 +1,6 @@
 const express = require("express");
 const getDeck = require('./src/getDeck');
-const checks = require('./checks');
+const checks = require('./src/checks');
 const app = express();
 
 app.get("/", (req, res) => {
@@ -10,3 +10,6 @@ app.get("/", (req, res) => {
 
 app.get("/get-cards", getFiveCards);
 app.get("/do-check", checks);
+
+app.listen(3000, () => console.log(`Example app listening on port 3000!`));
+
