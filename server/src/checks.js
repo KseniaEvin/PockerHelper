@@ -1,6 +1,7 @@
 const straightFlush = require('./straightFlush');
 const flushRoyal = require('./flushRoyal');
-const { flush, straight, repeat } = require('./combinations');
+const { flush, straight } = require('./combinations');
+
 function checks(fiveCards) {
     let isFlushRoyal = flushRoyal(fiveCards);
     if (isFlushRoyal) {

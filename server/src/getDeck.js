@@ -12,6 +12,7 @@ function getDeck () {
         deck = [...deck, card];
       };
     };
+
     return deck;
 }
 

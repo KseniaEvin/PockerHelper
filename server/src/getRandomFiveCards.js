@@ -5,6 +5,7 @@ let getRandomFiveCards = function (deck) {
         fiveCards = [...fiveCards, deck[index]];
         deck.splice(index, 1);
     };
+    
     return fiveCards;
 };
 
