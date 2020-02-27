@@ -1,7 +1,7 @@
-const getRandomFiveCards = require('../getRandomFiveCards');
+const getRandomSevenCards = require('../getRandomSevenCards');
 const getDeck = require('../getDeck');
 let deck = getDeck();
-let fiveCards = getRandomFiveCards(deck);
+let sevenCards = getRandomSevenCards(deck);
 test('', () => {
-    expect(fiveCards.length).toBe(5);
+    expect(sevenCards.length).toBe(7);
 });
