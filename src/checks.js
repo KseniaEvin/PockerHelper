@@ -25,7 +25,7 @@ function checks(sevenCards) {
     const isFourOfAKind = fourOfAKind(sevenCards);
     const isThreeOfAKind = threeOfAKind(sevenCards);
     if (isFourOfAKind) {
-        return "For Of A Kind";
+        return "Four Of A Kind";
     }
     if (repeats.length === 5) {
         return "Full House";
