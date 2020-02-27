@@ -33,7 +33,7 @@ function checks(sevenCards) {
     if (isThreeOfAKind) {
         return "Three";
     }
-    if (repeats.length === 4) {
+    if (repeats.length === 4 || repeats.length === 6) {
         return "Two Pairs";
     }
     if (repeats.length === 2) {
