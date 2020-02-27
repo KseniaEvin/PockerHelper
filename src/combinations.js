@@ -23,6 +23,42 @@ let straight = function (sevenCards) {
       return counter >= 4; 
 };
 
+let fourOfAKind = function(sevenCards) {
+  const ranks = getRanks(sevenCards);
+  let counter = 0;
+  for(let i=0; i<ranks.length; i++) {
+      let diff = ranks[i+1] - ranks[i];
+      if (diff === 0) {
+          counter++;
+          if (counter === 3)  {
+              return true;
+          }   
+      }
+      else {
+          counter = 0;
+      }
+  } 
+      return false;
+};
+
+let threeOfAKind = function(sevenCards) {
+  const ranks = getRanks(sevenCards);
+  let counter = 0;
+  for(let i=0; i<ranks.length; i++) {
+      let diff = ranks[i+1] - ranks[i];
+      if (diff === 0) {
+          counter++;
+          if (counter === 2)  {
+              return true;
+          } 
+      }
+      else {
+          counter = 0;
+      }
+  } 
+  return false;
+};
+
 let repeat = function (sevenCards) {
   const ranks = getRanks(sevenCards);
   const repeats = ranks.filter((elem, index) => {
@@ -35,5 +71,7 @@ let repeat = function (sevenCards) {
 module.exports = {
   flush,
   straight,
+  fourOfAKind,
+  threeOfAKind,
   repeat
 }

@@ -1,6 +1,6 @@
 const straightFlush = require('./straightFlush');
 const flushRoyal = require('./flushRoyal');
-const { flush, straight, repeat } = require('./combinations');
+const { flush, straight, fourOfAKind, threeOfAKind, repeat } = require('./combinations');
 
 function checks(sevenCards) {
     let isFlushRoyal = flushRoyal(sevenCards);
@@ -21,16 +21,16 @@ function checks(sevenCards) {
         return "Straight";
     }
 
-
     const repeats = repeat(sevenCards);
-    console.log(repeats);
-    if ((repeats.every((item, i, list) => item == list[0])) && repeats.length >= 4) {
-        return "Square";
+    const isFourOfAKind = fourOfAKind(sevenCards);
+    const isThreeOfAKind = threeOfAKind(sevenCards);
+    if (isFourOfAKind) {
+        return "For Of A Kind";
     }
     if (repeats.length === 5) {
         return "Full House";
     }
-    if (repeats.length === 3) {
+    if (isThreeOfAKind) {
         return "Three";
     }
     if (repeats.length === 4) {

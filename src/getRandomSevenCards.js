@@ -1,10 +1,10 @@
 let getRandomSevenCards = function (deck) {
     let sevenCards = [
-        { suit: 'Diamonds', rank: 5 },
-  { suit: 'Clubs', rank: 5 },
-  { suit: 'Spades', rank: 5 },
-  { suit: 'Hearts', rank: 5 },
-  { suit: 'Diamonds', rank: 8 },
+        { suit: 'Diamonds', rank: 2 },
+  { suit: 'Clubs', rank: 4 },
+  { suit: 'Spades', rank: 2 },
+  { suit: 'Hearts', rank: 4 },
+  { suit: 'Diamonds', rank: 10 },
   { suit: 'Diamonds', rank: 4 },
   { suit: 'Spades', rank: 4 }
     ];
