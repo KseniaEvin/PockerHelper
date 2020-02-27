@@ -2,27 +2,29 @@ const straightFlush = require('./straightFlush');
 const flushRoyal = require('./flushRoyal');
 const { flush, straight, repeat } = require('./combinations');
 
-function checks(fiveCards) {
-    let isFlushRoyal = flushRoyal(fiveCards);
+function checks(sevenCards) {
+    let isFlushRoyal = flushRoyal(sevenCards);
     if (isFlushRoyal) {
         return "Flush Royal";
     }
-    let isFlush = flush(fiveCards);
+    let isFlush = flush(sevenCards);
+    let isStraight = straight(sevenCards);
     if (isFlush && !isStraight) {
         return "Flush";
     }
-    let isStraightFlush = straightFlush(fiveCards);
+    let isStraightFlush = straightFlush(sevenCards);
     if (isStraightFlush) {
         return "Straight Flush";
     }
-    let isStraight = straight(fiveCards);
+    
     if (isStraight && !isFlush) {
         return "Straight";
     }
 
 
-    const repeats = repeat(fiveCards);
-    if ((repeats.every((item, i, list) => item == list[0])) && repeats.length === 4) {
+    const repeats = repeat(sevenCards);
+    console.log(repeats);
+    if ((repeats.every((item, i, list) => item == list[0])) && repeats.length >= 4) {
         return "Square";
     }
     if (repeats.length === 5) {

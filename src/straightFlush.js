@@ -1,7 +1,7 @@
-const { flush, straight, repeat } = require('./combinations');
-let straightFlush = function (fiveCards) {
-    let isFlush = flush(fiveCards);
-    let isStraight = straight(fiveCards);
+const { flush, straight } = require('./combinations');
+let straightFlush = function (sevenCards) {
+    let isFlush = flush(sevenCards);
+    let isStraight = straight(sevenCards);
     return isFlush && isStraight;
 }; 
 

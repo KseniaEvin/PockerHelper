@@ -1,4 +1,4 @@
-const getRandomFiveCards = require('./getRandomFiveCards');
+const getRandomSevenCards = require('./getRandomSevenCards');
 const getDeck = require('./getDeck');
 const checks = require('./checks');
 
@@ -6,11 +6,11 @@ function game() {
    // possible system output from BE to FE
    let deck = getDeck(); 
    // possible user input
-   let fiveCards = getRandomFiveCards(deck);
+   let sevenCards = getRandomSevenCards(deck);
    // all independent pure logic
-   let toCheck = checks(fiveCards);
+   let toCheck = checks(sevenCards);
 
-   console.log(fiveCards);
+   console.log(sevenCards);
    console.log(toCheck);
 };
 
