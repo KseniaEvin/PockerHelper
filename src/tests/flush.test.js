@@ -1,11 +1,11 @@
 const { flush } = require('../combinations');
-const flashAssertDataSetup = require('./flash.test-setup');
+const flushAssertDataSetup = require('./flush.test-setup');
 
-describe('Flash combination works correctly: ', () => {
+describe('Flush combination works correctly: ', () => {
     let combination;
 
-    describe('1) when combination is not Flash:', () => {
-        combination = flashAssertDataSetup(false);
+    describe('1) when combination is not Flush:', () => {
+        combination = flushAssertDataSetup(false);
         const isFlush = flush(combination);
 
         test('case, when flush should return false', () => {
@@ -13,8 +13,8 @@ describe('Flash combination works correctly: ', () => {
         });
     });
 
-    describe('2) when combination is Flash:', () => {
-        combination = flashAssertDataSetup(true);
+    describe('2) when combination is Flush:', () => {
+        combination = flushAssertDataSetup(true);
         const isFlush = flush(combination);
 
         test('case, when flush should return true', () => {

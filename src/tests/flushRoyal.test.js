@@ -1,28 +1,24 @@
 const flushRoyal = require('../flushRoyal');
-describe ('Not a Flush Royal', () => {
-let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-                    { suit: 'Hearts', rank: 12 },
-                    { suit: 'Clubs', rank: 11 },
-                    { suit: 'Hearts', rank: 14 },
-                    { suit: 'Hearts', rank: 13 },
-                    { suit: 'Clubs', rank: 14 },
-                    { suit: 'Diamonds', rank: 13 }];
-let isFlushRoyal = flushRoyal(sevenCards);
-test('case, when flushRoyal should return false', () => {
-    expect(isFlushRoyal).toBeFalsy();
-})
-});
+const flushRoyalAssertDataSetup = require('./flushRoyal.test-setup');
 
-describe ('A Flush Royal', () => {
-    let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-                        { suit: 'Hearts', rank: 12 },
-                        { suit: 'Hearts', rank: 11 },
-                        { suit: 'Hearts', rank: 14 },
-                        { suit: 'Hearts', rank: 13 },
-                        { suit: 'Clubs', rank: 14 },
-                        { suit: 'Diamonds', rank: 13 }];
-let isFlushRoyal = flushRoyal(sevenCards);
-test('case, when flushRoyal should return true', () => {
-    expect(isFlushRoyal).toBeTruthy();
+describe('Flush Royal combination works correctly: ', () => {
+    let combination;
+
+    describe ('1) when combination is not Flush Royal', () => {
+        combination = flushRoyalAssertDataSetup(false);
+        let isFlushRoyal = flushRoyal(combination);
+
+        test('case, when flushRoyal should return false', () => {
+            expect(isFlushRoyal).toBeFalsy();
+        })
+    });
+        
+    describe ('2) when combination is Flush Royal', () => {
+        combination = flushRoyalAssertDataSetup(true);  
+        let isFlushRoyal = flushRoyal(combination);
+
+        test('case, when flushRoyal should return true', () => {
+            expect(isFlushRoyal).toBeTruthy();
+        })
+    });
 })
-});
