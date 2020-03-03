@@ -1,27 +1,23 @@
 const straightFlush = require('../straightFlush');
-describe ('Not a Straight Flush', () => {
-let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-                    { suit: 'Hearts', rank: 12 },
-                    { suit: 'Clubs', rank: 11 },
-                    { suit: 'Hearts', rank: 14 },
-                    { suit: 'Hearts', rank: 13 },
-                    { suit: 'Clubs', rank: 14 },
-                    { suit: 'Diamonds', rank: 13 }];
-let isStraightFlush = straightFlush(sevenCards);
-test('case, when straightFlush should return false', () => {
-    expect(isStraightFlush).toBeFalsy();
+const straightFlushAssertDataSetup = require('./straightFlush.test-setup');
+
+describe('Straight Flush combination works correctly: ', () => {
+    let combination;
+
+    describe ('1) when combinations is not Straight Flush', () => {
+        combination = straightFlushAssertDataSetup(false);
+        let isStraightFlush = straightFlush(combination);
+
+        test('case, when straightFlush should return false', () => {
+            expect(isStraightFlush).toBeFalsy();
+        })
+    });
+    describe ('2) when combinations is Straight Flush', () => {
+        combination = straightFlushAssertDataSetup(true);
+        let isStraightFlush = straightFlush(combination);
+        
+        test('case, when straightFlush should return true', () => {
+            expect(isStraightFlush).toBeTruthy();
+        })
+    });
 })
-});
-describe ('A Straight Flush', () => {
-let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-                    { suit: 'Hearts', rank: 12 },
-                    { suit: 'Hearts', rank: 11 },
-                    { suit: 'Hearts', rank: 14 },
-                    { suit: 'Hearts', rank: 13 },
-                    { suit: 'Clubs', rank: 14 },
-                    { suit: 'Diamonds', rank: 13 }];
-let isStraightFlush = straightFlush(sevenCards);
-test('case, when straightFlush should return true', () => {
-    expect(isStraightFlush).toBeTruthy();
-})
-});
