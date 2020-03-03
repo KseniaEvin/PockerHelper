@@ -20,7 +20,7 @@
           template: `
           <div class="container">
         <div class="row justify-content-center">
-            <div class="col col-2 border border-dark card" v-for="card in sevenCards" :class="{red: isKindOfSuit}">{{card.suit}} <br> {{card.rank}}</div>
+            <div class="col col-2 border border-dark card" v-for="card in sevenCards" :class="{red: card.suit==='Diamonds' || card.suit==='Hearts'}">{{card.suit}} <br> {{card.rank}}</div>
         </div>
       </div>
           `,
@@ -36,14 +36,7 @@
               } 
           }, 
           computed: {
-            //Я хотела сделать так, чтобы окрашивались в красный только те, которые Diamondsб но так и не додумалась как это сделать:(
-            isKindOfSuit() {
-              let suits = [];
-                    for (let i=0; i<this.sevenCards.length; i++) {
-                        suits.push(this.sevenCards[i].suit);
-                    }
-                    return suits.filter((item) => item === 'Diamonds')
-                  }    
+           
           }
       })
 
