@@ -1,14 +1,14 @@
 const { getSuits, getRanks } = require('./utilities');
-let flush = function (sevenCards) {
-  let suits = getSuits(sevenCards);
-  let suitsNumber = suits.filter((item, i, list) => item === list[0]);
+const flush = function (sevenCards) {
+  const suits = getSuits(sevenCards);
+  const suitsNumber = suits.filter((item, i, list) => item === list[0]);
   if (suitsNumber.length >= 5) {
   return suitsNumber.every((item, i, list) => item === list[0]);
   }
   return false;
 };
 
-let straight = function (sevenCards) {
+const straight = function (sevenCards) {
   const ranks = getRanks(sevenCards);
   let counter = 0;
   for(let i = 0; i < ranks.length; i++) {
@@ -23,7 +23,7 @@ let straight = function (sevenCards) {
       return counter >= 4; 
 };
 
-let fourOfAKind = function(sevenCards) {
+const fourOfAKind = function(sevenCards) {
   const ranks = getRanks(sevenCards);
   let counter = 0;
   for(let i=0; i<ranks.length; i++) {
@@ -41,7 +41,7 @@ let fourOfAKind = function(sevenCards) {
       return false;
 };
 
-let threeOfAKind = function(sevenCards) {
+const threeOfAKind = function(sevenCards) {
   const ranks = getRanks(sevenCards);
   let counter = 0;
   for(let i=0; i<ranks.length; i++) {
@@ -59,7 +59,7 @@ let threeOfAKind = function(sevenCards) {
   return false;
 };
 
-let repeat = function (sevenCards) {
+const repeat = function (sevenCards) {
   const ranks = getRanks(sevenCards);
   const repeats = ranks.filter((elem, index) => {
     return index !== ranks.indexOf(elem) || index !== ranks.lastIndexOf(elem);

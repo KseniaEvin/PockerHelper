@@ -1,7 +1,7 @@
 const { flush, straight } = require('./combinations');
-let straightFlush = function (sevenCards) {
-    let isFlush = flush(sevenCards);
-    let isStraight = straight(sevenCards);
+const straightFlush = function (sevenCards) {
+    const isFlush = flush(sevenCards);
+    const isStraight = straight(sevenCards);
     return isFlush && isStraight;
 }; 
 

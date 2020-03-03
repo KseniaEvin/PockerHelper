@@ -3,16 +3,16 @@ const flushRoyal = require('./flushRoyal');
 const { flush, straight, fourOfAKind, threeOfAKind, repeat } = require('./combinations');
 
 function checks(sevenCards) {
-    let isFlushRoyal = flushRoyal(sevenCards);
+    const isFlushRoyal = flushRoyal(sevenCards);
     if (isFlushRoyal) {
         return "Flush Royal";
     }
-    let isFlush = flush(sevenCards);
-    let isStraight = straight(sevenCards);
+    const isFlush = flush(sevenCards);
+    const isStraight = straight(sevenCards);
     if (isFlush && !isStraight) {
         return "Flush";
     }
-    let isStraightFlush = straightFlush(sevenCards);
+    const isStraightFlush = straightFlush(sevenCards);
     if (isStraightFlush) {
         return "Straight Flush";
     }
