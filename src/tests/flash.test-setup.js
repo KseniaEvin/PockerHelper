@@ -1,4 +1,3 @@
-
 function flashAssertDataSetup(doesFlashNeeded) {
     const sevenCardsWithoutFlash = [{ suit: 'Hearts', rank: 10 },
     { suit: 'Hearts', rank: 12 },

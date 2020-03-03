@@ -1,28 +1,24 @@
 const { straight } = require('../combinations');
-describe ('Not a Straight', () => {
-let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-                    { suit: 'Hearts', rank: 12 },
-                    { suit: 'Clubs', rank: 8 },
-                    { suit: 'Hearts', rank: 14 },
-                    { suit: 'Hearts', rank: 13 },
-                    { suit: 'Hearts', rank: 14 },
-                    { suit: 'Diamonds', rank: 13 }];
-let isStraight = straight(sevenCards);
-test('case, when straight should return false', () => {
-    expect(isStraight).toBeFalsy();
-})
-});
+const straightAssertDataSetup = require('./straight.test-setup');
 
-describe ('A Straight', () => {
-let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-                { suit: 'Hearts', rank: 12 },
-                { suit: 'Clubs', rank: 11 },
-                { suit: 'Hearts', rank: 14 },
-                { suit: 'Hearts', rank: 13 },
-                { suit: 'Hearts', rank: 14 },
-                { suit: 'Diamonds', rank: 13 }];
-let isStraight = straight(sevenCards);
-test('case, when straight should return true', () => {
-    expect(isStraight).toBeTruthy();
-})
+describe('Straight combination works correctly: ', () => {
+    let combination;
+
+    describe ('1) when combination is not Straight: ', () => {
+        combination = straightAssertDataSetup(false);
+        const isStraight = straight(combination);
+        
+        test('case, when straight should return false', () => {
+            expect(isStraight).toBeFalsy();
+        });
+    });
+        
+    describe ('2) when combination is Straight: ', () => {
+        combination = straightAssertDataSetup(true);
+        const isStraight = straight(combination);
+
+        test('case, when straight should return true', () => {
+            expect(isStraight).toBeTruthy();
+        })
+    });
 });
