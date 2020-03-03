@@ -55,7 +55,7 @@ describe ('Repeat works correctly: ', () => {
         })
         });
         
-    describe('first case, when we receive Two Pairs', () => {
+    describe('second case, when we receive Two Pairs', () => {
         let sevenCards =   [ { suit: 'Clubs', rank: 5 },
                             { suit: 'Hearts', rank: 6 },
                             { suit: 'Hearts', rank: 5 },
