@@ -1,28 +1,24 @@
 const { fourOfAKind } = require('../combinations');
-describe ('Falsy case of FourOfAKind', () => {
-let sevenCards =   [ { suit: 'Clubs', rank: 5 },
-                    { suit: 'Hearts', rank: 6 },
-                    { suit: 'Hearts', rank: 5 },
-                    { suit: 'Spades', rank: 6 },
-                    { suit: 'Hearts', rank: 8 },
-                    { suit: 'Diamonds', rank: 5 },
-                    { suit: 'Hearts', rank: 9 }];
-let isFourOfAKind = fourOfAKind(sevenCards);
-test('case, when isFourOfAKind should return false', () => {
-    expect(isFourOfAKind).toBeFalsy();
-})
-});
+const fourOfAKindAssertDataSetup = require('./fourOfAKind.test-setup');
 
-describe ('Truthy case of FourOfAKind', () => {
-    let sevenCards =   [ { suit: 'Clubs', rank: 5 },
-                        { suit: 'Hearts', rank: 6 },
-                        { suit: 'Hearts', rank: 5 },
-                        { suit: 'Spades', rank: 5 },
-                        { suit: 'Hearts', rank: 8 },
-                        { suit: 'Diamonds', rank: 5 },
-                        { suit: 'Hearts', rank: 9 }];
-    let isFourOfAKind = fourOfAKind(sevenCards);
-    test('case, when isFourOfAKind should return true', () => {
-        expect(isFourOfAKind).toBeTruthy();
-    })
+describe('Four of A Kind combination works correctly', () => {
+    let combination;
+
+    describe ('1) when combination is not Four Of A Kind', () => {
+        combination = fourOfAKindAssertDataSetup(false);
+        let isFourOfAKind = fourOfAKind(combination);
+        
+        test('case, when isFourOfAKind should return false', () => {
+            expect(isFourOfAKind).toBeFalsy();
+        })
     });
+        
+    describe ('2) when combination is Four Of AKind', () => {
+        combination = fourOfAKindAssertDataSetup(true);
+        let isFourOfAKind = fourOfAKind(combination);
+
+        test('case, when isFourOfAKind should return true', () => {
+            expect(isFourOfAKind).toBeTruthy();
+        })
+    });
+})
