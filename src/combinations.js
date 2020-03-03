@@ -1,29 +1,62 @@
-const { getSuits, getRanks, cardDifference } = require('./utilities');
+const { getSuits, getRanks } = require('./utilities');
 let flush = function (sevenCards) {
   let suits = getSuits(sevenCards);
   let suitsNumber = suits.filter((item, i, list) => item === list[0]);
   if (suitsNumber.length >= 5) {
-    return suitsNumber.every((item, i, list) => item === list[0]);
+  return suitsNumber.every((item, i, list) => item === list[0]);
   }
   return false;
 };
 
 let straight = function (sevenCards) {
   const ranks = getRanks(sevenCards);
-  const counter = cardDifference(ranks, 1);
-  return counter>=4;
+  let counter = 0;
+  for(let i = 0; i < ranks.length; i++) {
+      let diff = ranks[i+1] - ranks[i];
+      if (diff === 1) {
+          counter++;
+      }
+      else if (diff > 1) {
+          counter = 0;
+      }
+  };
+      return counter >= 4; 
 };
 
-let fourOfAKind = function (sevenCards) {
+let fourOfAKind = function(sevenCards) {
   const ranks = getRanks(sevenCards);
-  const counter = cardDifference(ranks, 0);
-  return counter === 3;
+  let counter = 0;
+  for(let i=0; i<ranks.length; i++) {
+      let diff = ranks[i+1] - ranks[i];
+      if (diff === 0) {
+          counter++;
+          if (counter === 3)  {
+              return true;
+          }   
+      }
+      else {
+          counter = 0;
+      }
+  } 
+      return false;
 };
 
-let threeOfAKind = function (sevenCards) {
+let threeOfAKind = function(sevenCards) {
   const ranks = getRanks(sevenCards);
-  const counter = cardDifference(ranks, 0);
-  return counter === 2;
+  let counter = 0;
+  for(let i=0; i<ranks.length; i++) {
+      let diff = ranks[i+1] - ranks[i];
+      if (diff === 0) {
+          counter++;
+          if (counter === 2)  {
+              return true;
+          } 
+      }
+      else {
+          counter = 0;
+      }
+  } 
+  return false;
 };
 
 let repeat = function (sevenCards) {
@@ -31,10 +64,9 @@ let repeat = function (sevenCards) {
   const repeats = ranks.filter((elem, index) => {
     return index !== ranks.indexOf(elem) || index !== ranks.lastIndexOf(elem);
   });
-  console.log(repeats)
+
   return repeats;
 };
-
 
 module.exports = {
   flush,
