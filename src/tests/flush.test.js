@@ -1,28 +1,24 @@
 const { flush } = require('../combinations');
-describe ('Not a Flush', () => {
-let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-                    { suit: 'Hearts', rank: 12 },
-                    { suit: 'Clubs', rank: 11 },
-                    { suit: 'Hearts', rank: 14 },
-                    { suit: 'Hearts', rank: 13 },
-                    { suit: 'Clubs', rank: 14 },
-                    { suit: 'Diamonds', rank: 13 }];
-let isFlush = flush(sevenCards);
-test('case, when flush should return false', () => {
-    expect(isFlush).toBeFalsy();
-})
-});
+const flashAssertDataSetup = require('./flash.test-setup');
 
-describe ('A Flush', () => {
-    let sevenCards =   [ { suit: 'Hearts', rank: 10 },
-        { suit: 'Hearts', rank: 12 },
-        { suit: 'Clubs', rank: 11 },
-        { suit: 'Hearts', rank: 14 },
-        { suit: 'Hearts', rank: 13 },
-        { suit: 'Hearts', rank: 14 },
-        { suit: 'Diamonds', rank: 13 }];
-    let isFlush = flush(sevenCards);
-    test('case, when flush should return true', () => {
-    expect(isFlush).toBeTruthy();
+describe('Flash combination works correctly: ', () => {
+    let combination;
+
+    describe('1) when combination is not Flash:', () => {
+        combination = flashAssertDataSetup(false);
+        const isFlush = flush(combination);
+
+        test('case, when flush should return false', () => {
+            expect(isFlush).toBeFalsy();
+        });
+    });
+
+    describe('2) when combination is Flash:', () => {
+        combination = flashAssertDataSetup(true);
+        const isFlush = flush(combination);
+
+        test('case, when flush should return true', () => {
+            expect(isFlush).toBeTruthy();
+        });
     });
 });
